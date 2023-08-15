@@ -1003,6 +1003,7 @@
       "LOCKOUT": "Блокиране",
       "COMPLEXITY": "Сложност на паролата",
       "NOTIFICATIONS": "Настройки за известията",
+      "NOTIFICATIONS_PROVIDER": "Доставчик на известия",
       "NOTIFICATIONS_DESC": "Настройки за SMTP и SMS",
       "MESSAGETEXTS": "Текстове на съобщения",
       "IDP": "Доставчици на идентичност",

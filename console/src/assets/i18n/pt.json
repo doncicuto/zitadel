@@ -1010,6 +1010,7 @@
       "LOCKOUT": "Bloqueio",
       "COMPLEXITY": "Complexidade de Senha",
       "NOTIFICATIONS": "Configurações de Notificação",
+      "NOTIFICATIONS_PROVIDER": "Provedor de notificação",
       "NOTIFICATIONS_DESC": "Configurações de SMTP e SMS",
       "MESSAGETEXTS": "Textos de Mensagem",
       "IDP": "Provedores de Identidade",

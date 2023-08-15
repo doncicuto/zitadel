@@ -1009,6 +1009,7 @@
       "LOCKOUT": "Blokada",
       "COMPLEXITY": "Złożoność hasła",
       "NOTIFICATIONS": "Ustawienia powiadomień",
+      "NOTIFICATIONS_PROVIDER": "Dostawca powiadomień",
       "NOTIFICATIONS_DESC": "Ustawienia SMTP i SMS",
       "MESSAGETEXTS": "Teksty wiadomości",
       "IDP": "Dostawcy tożsamości",

@@ -1010,6 +1010,7 @@
       "LOCKOUT": "ロックアウト",
       "COMPLEXITY": "パスワードの複雑さ",
       "NOTIFICATIONS": "通知設定",
+      "NOTIFICATIONS_PROVIDER": "通知プロバイダー",
       "NOTIFICATIONS_DESC": "SMTPおよびSMS設定",
       "MESSAGETEXTS": "メッセージテキスト",
       "IDP": "IDプロバイダー",

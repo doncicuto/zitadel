@@ -1009,6 +1009,7 @@
       "LOCKOUT": "Verrouillage",
       "COMPLEXITY": "Complexité du mot de passe",
       "NOTIFICATIONS": "Paramètres de notification",
+      "NOTIFICATIONS_PROVIDER": "Fournisseur de notifications",
       "NOTIFICATIONS_DESC": "Paramètres SMTP et SMS",
       "MESSAGETEXTS": "Textes des messages",
       "IDP": "Fournisseurs d'identité",

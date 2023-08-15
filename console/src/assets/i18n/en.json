@@ -1010,6 +1010,7 @@
       "LOCKOUT": "Lockout",
       "COMPLEXITY": "Password complexity",
       "NOTIFICATIONS": "Notification settings",
+      "NOTIFICATIONS_PROVIDER": "Notification provider",
       "NOTIFICATIONS_DESC": "SMTP and SMS Settings",
       "MESSAGETEXTS": "Message Texts",
       "IDP": "Identity Providers",

@@ -92,6 +92,15 @@ export const NOTIFICATIONS: SidenavSetting = {
   },
 };
 
+export const NOTIFICATIONS_PROVIDER: SidenavSetting = {
+  id: 'notificationsprovider',
+  i18nKey: 'SETTINGS.LIST.NOTIFICATIONS_PROVIDER',
+  groupI18nKey: 'SETTINGS.GROUPS.NOTIFICATIONS',
+  requiredRoles: {
+    [PolicyComponentServiceType.ADMIN]: ['iam.policy.read'],
+  },
+};
+
 export const NOTIFICATION_POLICY: SidenavSetting = {
   id: 'notifications',
   i18nKey: 'SETTINGS.LIST.NOTIFICATIONS',

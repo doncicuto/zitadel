@@ -1009,6 +1009,7 @@
       "LOCKOUT": "Sperrmechanismen",
       "COMPLEXITY": "Passwordkomplexität",
       "NOTIFICATIONS": "Benachrichtigungseinstellungen",
+      "NOTIFICATIONS_PROVIDER": "Benachrichtigungsanbieter",
       "NOTIFICATIONS_DESC": "SMTP und SMS Einstellungen",
       "MESSAGETEXTS": "Benachrichtigungstexte",
       "IDP": "Identitätsanbieter",

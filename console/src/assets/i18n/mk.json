@@ -1010,6 +1010,7 @@
       "LOCKOUT": "Забрана на пристап",
       "COMPLEXITY": "Сложеност на лозинката",
       "NOTIFICATIONS": "Подесувања за известувања",
+      "NOTIFICATIONS_PROVIDER": "Обезбедувач на известувања",
       "NOTIFICATIONS_DESC": "Подесувања за SMTP и SMS",
       "MESSAGETEXTS": "Текстови на пораки",
       "IDP": "Identity Providers",
