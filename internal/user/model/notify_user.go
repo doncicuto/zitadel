@@ -20,6 +20,8 @@ type NotifyUser struct {
 	DisplayName        string
 	PreferredLanguage  string
 	Gender             Gender
+	GenderText         string
+	Pronouns           string
 	LastEmail          string
 	VerifiedEmail      string
 	LastPhone          string

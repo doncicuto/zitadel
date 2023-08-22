@@ -79,12 +79,13 @@
 
                 <cnsl-form-field class="formfield">
                   <cnsl-label>{{ 'USER.PROFILE.GENDER' | translate }}</cnsl-label>
-                  <mat-select formControlName="gender">
-                    <mat-option *ngFor="let gender of genders" [value]="gender">
-                      {{ 'GENDERS.' + gender | translate }}
-                    </mat-option>
-                  </mat-select>
+                  <input cnslInput formControlName="gender" />                  
                 </cnsl-form-field>
+                <cnsl-form-field class="formfield">
+                  <cnsl-label>{{ 'USER.PROFILE.PRONOUNS' | translate }}</cnsl-label>
+                  <input cnslInput formControlName="pronouns" />                  
+                </cnsl-form-field>
+
                 <cnsl-form-field class="formfield">
                   <cnsl-label>{{ 'USER.PROFILE.PREFERRED_LANGUAGE' | translate }}</cnsl-label>
                   <mat-select formControlName="preferredLanguage">

@@ -37,6 +37,8 @@ type HumanAddedEvent struct {
 	DisplayName       string        `json:"displayName,omitempty"`
 	PreferredLanguage language.Tag  `json:"preferredLanguage,omitempty"`
 	Gender            domain.Gender `json:"gender,omitempty"`
+	GenderText        string        `json:"genderText,omitempty"`
+	Pronouns          string        `json:"pronouns,omitempty"`
 
 	EmailAddress domain.EmailAddress `json:"email,omitempty"`
 
@@ -102,6 +104,8 @@ func NewHumanAddedEvent(
 	displayName string,
 	preferredLanguage language.Tag,
 	gender domain.Gender,
+	genderText,
+	pronouns string,
 	emailAddress domain.EmailAddress,
 	userLoginMustBeDomain bool,
 ) *HumanAddedEvent {
@@ -118,6 +122,8 @@ func NewHumanAddedEvent(
 		DisplayName:           displayName,
 		PreferredLanguage:     preferredLanguage,
 		Gender:                gender,
+		GenderText:            genderText,
+		Pronouns:              pronouns,
 		EmailAddress:          emailAddress,
 		userLoginMustBeDomain: userLoginMustBeDomain,
 	}
@@ -145,6 +151,8 @@ type HumanRegisteredEvent struct {
 	DisplayName           string              `json:"displayName,omitempty"`
 	PreferredLanguage     language.Tag        `json:"preferredLanguage,omitempty"`
 	Gender                domain.Gender       `json:"gender,omitempty"`
+	GenderText            string              `json:"genderText,omitempty"`
+	Pronouns              string              `json:"pronouns,omitempty"`
 	EmailAddress          domain.EmailAddress `json:"email,omitempty"`
 	PhoneNumber           domain.PhoneNumber  `json:"phone,omitempty"`
 	Country               string              `json:"country,omitempty"`
@@ -207,6 +215,8 @@ func NewHumanRegisteredEvent(
 	displayName string,
 	preferredLanguage language.Tag,
 	gender domain.Gender,
+	genderText,
+	pronouns string,
 	emailAddress domain.EmailAddress,
 	userLoginMustBeDomain bool,
 ) *HumanRegisteredEvent {
@@ -223,6 +233,8 @@ func NewHumanRegisteredEvent(
 		DisplayName:           displayName,
 		PreferredLanguage:     preferredLanguage,
 		Gender:                gender,
+		GenderText:            genderText,
+		Pronouns:              pronouns,
 		EmailAddress:          emailAddress,
 		userLoginMustBeDomain: userLoginMustBeDomain,
 	}

@@ -39,6 +39,8 @@ type HumanView struct {
 	AvatarKey                string
 	PreferredLanguage        string
 	Gender                   Gender
+	GenderText               string
+	Pronouns                 string
 	Email                    string
 	IsEmailVerified          bool
 	Phone                    string
@@ -263,6 +265,8 @@ func (u *UserView) GetProfile() (*Profile, error) {
 		DisplayName:        u.DisplayName,
 		PreferredLanguage:  language.Make(u.PreferredLanguage),
 		Gender:             u.Gender,
+		GenderText:         u.GenderText,
+		Pronouns:           u.Pronouns,
 		PreferredLoginName: u.PreferredLoginName,
 		LoginNames:         u.LoginNames,
 		AvatarKey:          u.AvatarKey,

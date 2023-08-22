@@ -20,6 +20,8 @@ type HumanProfileWriteModel struct {
 	DisplayName       string
 	PreferredLanguage language.Tag
 	Gender            domain.Gender
+	GenderText        string
+	Pronouns          string
 
 	UserState domain.UserState
 }
@@ -43,6 +45,8 @@ func (wm *HumanProfileWriteModel) Reduce() error {
 			wm.DisplayName = e.DisplayName
 			wm.PreferredLanguage = e.PreferredLanguage
 			wm.Gender = e.Gender
+			wm.GenderText = e.GenderText
+			wm.Pronouns = e.Pronouns
 			wm.UserState = domain.UserStateActive
 		case *user.HumanRegisteredEvent:
 			wm.FirstName = e.FirstName
@@ -51,6 +55,8 @@ func (wm *HumanProfileWriteModel) Reduce() error {
 			wm.DisplayName = e.DisplayName
 			wm.PreferredLanguage = e.PreferredLanguage
 			wm.Gender = e.Gender
+			wm.GenderText = e.GenderText
+			wm.Pronouns = e.Pronouns
 			wm.UserState = domain.UserStateActive
 		case *user.HumanProfileChangedEvent:
 			if e.FirstName != "" {
@@ -70,6 +76,12 @@ func (wm *HumanProfileWriteModel) Reduce() error {
 			}
 			if e.Gender != nil {
 				wm.Gender = *e.Gender
+			}
+			if e.GenderText != nil {
+				wm.GenderText = *e.GenderText
+			}
+			if e.Pronouns != nil {
+				wm.Pronouns = *e.Pronouns
 			}
 		case *user.UserRemovedEvent:
 			wm.UserState = domain.UserStateDeleted
@@ -103,6 +115,7 @@ func (wm *HumanProfileWriteModel) NewChangedEvent(
 	displayName string,
 	preferredLanguage language.Tag,
 	gender domain.Gender,
+	genderText, pronouns string,
 ) (*user.HumanProfileChangedEvent, bool, error) {
 	changes := make([]user.ProfileChanges, 0)
 	var err error
@@ -124,6 +137,12 @@ func (wm *HumanProfileWriteModel) NewChangedEvent(
 	}
 	if wm.Gender != gender {
 		changes = append(changes, user.ChangeGender(gender))
+	}
+	if wm.GenderText != genderText {
+		changes = append(changes, user.ChangeGenderText(genderText))
+	}
+	if wm.Pronouns != pronouns {
+		changes = append(changes, user.ChangePronouns(pronouns))
 	}
 	if len(changes) == 0 {
 		return nil, false, nil

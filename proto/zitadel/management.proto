@@ -7479,7 +7479,7 @@ message AddHumanUserRequest {
         string nick_name = 3 [(validate.rules).string = {max_len: 200}];
         string display_name = 4 [(validate.rules).string = {max_len: 200}];
         string preferred_language = 5 [(validate.rules).string = {max_len: 10}];
-        zitadel.user.v1.Gender gender = 6;
+        zitadel.user.v1.Gender gender = 6 [deprecated = true];
     }
     message Email {
         string email = 1 [(validate.rules).string.email = true];
@@ -7553,8 +7553,23 @@ message ImportHumanUserRequest {
             }
         ];
         zitadel.user.v1.Gender gender = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            deprecated: true;
             example: "\"GENDER_FEMALE\"";
         }];
+        string gender_text = 7 [
+            (validate.rules).string = {max_len: 200},
+            (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+                max_length: 200;
+                example: "\"Mail\"";
+            }
+        ];
+        string pronouns = 8 [
+            (validate.rules).string = {max_len: 200},
+            (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+                max_length: 200;
+                example: "\"he/him\"";
+            }
+        ];
     }
     message Email {
         option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
@@ -7984,6 +7999,20 @@ message UpdateHumanProfileRequest {
         }
     ];
     zitadel.user.v1.Gender gender = 7;
+    string preferred_language = 8 [
+        (validate.rules).string = {max_len: 200},
+        (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            max_length: 200;
+            example: "\"Male\"";
+        }
+    ];
+    string preferred_language = 9 [
+        (validate.rules).string = {max_len: 200},
+        (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            max_length: 20;
+            example: "\"he/him\"";
+        }
+    ];
 }
 
 message UpdateHumanProfileResponse {

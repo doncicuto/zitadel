@@ -16,6 +16,8 @@ type Profile struct {
 	DisplayName        string
 	PreferredLanguage  language.Tag
 	Gender             Gender
+	GenderText         string
+	Pronouns           string
 	PreferredLoginName string
 	LoginNames         []string
 }

@@ -17,6 +17,8 @@ type Profile struct {
 	DisplayName       string      `json:"displayName,omitempty"`
 	PreferredLanguage LanguageTag `json:"preferredLanguage,omitempty"`
 	Gender            int32       `json:"gender,omitempty"`
+	GenderText        string      `json:"genderText,omitempty"`
+	Pronouns          string      `json:"pronouns,omitempty"`
 }
 
 func (p *Profile) Changes(changed *Profile) map[string]interface{} {
@@ -38,6 +40,12 @@ func (p *Profile) Changes(changed *Profile) map[string]interface{} {
 	}
 	if changed.Gender != p.Gender {
 		changes["gender"] = changed.Gender
+	}
+	if changed.GenderText != p.GenderText {
+		changes["genderText"] = changed.GenderText
+	}
+	if changed.Pronouns != p.Pronouns {
+		changes["pronouns"] = changed.Pronouns
 	}
 	return changes
 }

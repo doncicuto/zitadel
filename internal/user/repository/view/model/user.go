@@ -78,6 +78,8 @@ type HumanView struct {
 	DisplayName              string         `json:"displayName" gorm:"column:display_name"`
 	PreferredLanguage        string         `json:"preferredLanguage" gorm:"column:preferred_language"`
 	Gender                   int32          `json:"gender" gorm:"column:gender"`
+	GenderText               string         `json:"genderText" gorm:"column:gender_text"`
+	Pronouns                 string         `json:"pronouns" gorm:"column:pronouns"`
 	AvatarKey                string         `json:"storeKey" gorm:"column:avatar_key"`
 	Email                    string         `json:"email" gorm:"column:email"`
 	IsEmailVerified          bool           `json:"-" gorm:"column:is_email_verified"`

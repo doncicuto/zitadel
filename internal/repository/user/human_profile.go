@@ -26,6 +26,8 @@ type HumanProfileChangedEvent struct {
 	DisplayName       *string        `json:"displayName,omitempty"`
 	PreferredLanguage *language.Tag  `json:"preferredLanguage,omitempty"`
 	Gender            *domain.Gender `json:"gender,omitempty"`
+	GenderText        *string        `json:"genderText,omitempty"`
+	Pronouns          *string        `json:"pronouns,omitempty"`
 }
 
 func (e *HumanProfileChangedEvent) Data() interface{} {
@@ -92,6 +94,18 @@ func ChangePreferredLanguage(language language.Tag) func(event *HumanProfileChan
 func ChangeGender(gender domain.Gender) func(event *HumanProfileChangedEvent) {
 	return func(e *HumanProfileChangedEvent) {
 		e.Gender = &gender
+	}
+}
+
+func ChangeGenderText(genderText string) func(event *HumanProfileChangedEvent) {
+	return func(e *HumanProfileChangedEvent) {
+		e.GenderText = &genderText
+	}
+}
+
+func ChangePronouns(pronouns string) func(event *HumanProfileChangedEvent) {
+	return func(e *HumanProfileChangedEvent) {
+		e.Pronouns = &pronouns
 	}
 }
 

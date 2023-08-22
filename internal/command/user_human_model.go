@@ -20,6 +20,8 @@ type HumanWriteModel struct {
 	DisplayName       string
 	PreferredLanguage language.Tag
 	Gender            domain.Gender
+	GenderText        string
+	Pronouns          string
 	Avatar            string
 
 	Email           domain.EmailAddress
@@ -151,6 +153,8 @@ func (wm *HumanWriteModel) reduceHumanAddedEvent(e *user.HumanAddedEvent) {
 	wm.DisplayName = e.DisplayName
 	wm.PreferredLanguage = e.PreferredLanguage
 	wm.Gender = e.Gender
+	wm.GenderText = e.GenderText
+	wm.Pronouns = e.Pronouns
 	wm.Email = e.EmailAddress
 	wm.Phone = e.PhoneNumber
 	wm.Country = e.Country
@@ -171,6 +175,8 @@ func (wm *HumanWriteModel) reduceHumanRegisteredEvent(e *user.HumanRegisteredEve
 	wm.DisplayName = e.DisplayName
 	wm.PreferredLanguage = e.PreferredLanguage
 	wm.Gender = e.Gender
+	wm.GenderText = e.GenderText
+	wm.Pronouns = e.Pronouns
 	wm.Email = e.EmailAddress
 	wm.Phone = e.PhoneNumber
 	wm.Country = e.Country
@@ -202,6 +208,13 @@ func (wm *HumanWriteModel) reduceHumanProfileChangedEvent(e *user.HumanProfileCh
 	if e.Gender != nil {
 		wm.Gender = *e.Gender
 	}
+	if e.GenderText != nil {
+		wm.GenderText = *e.GenderText
+	}
+	if e.Pronouns != nil {
+		wm.Pronouns = *e.Pronouns
+	}
+
 }
 
 func (wm *HumanWriteModel) reduceHumanEmailChangedEvent(e *user.HumanEmailChangedEvent) {

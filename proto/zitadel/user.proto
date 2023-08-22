@@ -120,13 +120,26 @@ message Profile {
     ];
     Gender gender = 6 [
         (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
-            description: "the gender of the human";
+            description: "the gender of the human (deprecated, use gender_text instead)";
+            deprecated: true;
         }
     ];
     string avatar_url = 7 [
         (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
             description: "avatar URL of the user"
             example: "\"https://api.zitadel.ch/assets/v1/avatar-32432jkh4kj32\"";
+        }
+    ];
+    string gender_text = 8 [
+        (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            description: "the gender as a custom text string"
+            example: "\"Male\"";
+        }
+    ];
+    string pronouns = 9 [
+        (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            description: "gender pronouns"
+            example: "\"he/him\"";
         }
     ];
 }

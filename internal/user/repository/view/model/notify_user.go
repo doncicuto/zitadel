@@ -35,6 +35,8 @@ type NotifyUser struct {
 	DisplayName        string               `json:"displayName" gorm:"column:display_name"`
 	PreferredLanguage  string               `json:"preferredLanguage" gorm:"column:preferred_language"`
 	Gender             int32                `json:"gender" gorm:"column:gender"`
+	GenderText         string               `json:"genderText" gorm:"column:gender_text"`
+	Pronouns           string               `json:"pronouns" gorm:"column:pronouns"`
 	LastEmail          string               `json:"email" gorm:"column:last_email"`
 	VerifiedEmail      string               `json:"-" gorm:"column:verified_email"`
 	LastPhone          string               `json:"phone" gorm:"column:last_phone"`

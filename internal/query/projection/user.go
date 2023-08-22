@@ -46,6 +46,8 @@ const (
 	HumanDisplayNameCol       = "display_name"
 	HumanPreferredLanguageCol = "preferred_language"
 	HumanGenderCol            = "gender"
+	HumanGenderTextCol        = "gender_text"
+	HumanPronounsCol          = "pronouns"
 	HumanAvatarURLCol         = "avatar_key"
 
 	// email
@@ -107,6 +109,8 @@ func newUserProjection(ctx context.Context, config crdb.StatementHandlerConfig) 
 			crdb.NewColumn(HumanDisplayNameCol, crdb.ColumnTypeText, crdb.Nullable()),
 			crdb.NewColumn(HumanPreferredLanguageCol, crdb.ColumnTypeText, crdb.Nullable()),
 			crdb.NewColumn(HumanGenderCol, crdb.ColumnTypeEnum, crdb.Nullable()),
+			crdb.NewColumn(HumanGenderTextCol, crdb.ColumnTypeText, crdb.Nullable()),
+			crdb.NewColumn(HumanPronounsCol, crdb.ColumnTypeText, crdb.Nullable()),
 			crdb.NewColumn(HumanAvatarURLCol, crdb.ColumnTypeText, crdb.Nullable()),
 			crdb.NewColumn(HumanEmailCol, crdb.ColumnTypeText),
 			crdb.NewColumn(HumanIsEmailVerifiedCol, crdb.ColumnTypeBool, crdb.Default(false)),
@@ -341,6 +345,8 @@ func (p *userProjection) reduceHumanAdded(event eventstore.Event) (*handler.Stat
 				handler.NewCol(HumanDisplayNameCol, &sql.NullString{String: e.DisplayName, Valid: e.DisplayName != ""}),
 				handler.NewCol(HumanPreferredLanguageCol, &sql.NullString{String: e.PreferredLanguage.String(), Valid: !e.PreferredLanguage.IsRoot()}),
 				handler.NewCol(HumanGenderCol, &sql.NullInt16{Int16: int16(e.Gender), Valid: e.Gender.Specified()}),
+				handler.NewCol(HumanGenderTextCol, &sql.NullString{String: e.GenderText, Valid: e.GenderText != ""}),
+				handler.NewCol(HumanPronounsCol, &sql.NullString{String: e.Pronouns, Valid: e.Pronouns != ""}),
 				handler.NewCol(HumanEmailCol, e.EmailAddress),
 				handler.NewCol(HumanPhoneCol, &sql.NullString{String: string(e.PhoneNumber), Valid: e.PhoneNumber != ""}),
 			},
@@ -389,6 +395,8 @@ func (p *userProjection) reduceHumanRegistered(event eventstore.Event) (*handler
 				handler.NewCol(HumanDisplayNameCol, &sql.NullString{String: e.DisplayName, Valid: e.DisplayName != ""}),
 				handler.NewCol(HumanPreferredLanguageCol, &sql.NullString{String: e.PreferredLanguage.String(), Valid: !e.PreferredLanguage.IsRoot()}),
 				handler.NewCol(HumanGenderCol, &sql.NullInt16{Int16: int16(e.Gender), Valid: e.Gender.Specified()}),
+				handler.NewCol(HumanGenderTextCol, &sql.NullString{String: e.GenderText, Valid: e.GenderText != ""}),
+				handler.NewCol(HumanPronounsCol, &sql.NullString{String: e.Pronouns, Valid: e.Pronouns != ""}),
 				handler.NewCol(HumanEmailCol, e.EmailAddress),
 				handler.NewCol(HumanPhoneCol, &sql.NullString{String: string(e.PhoneNumber), Valid: e.PhoneNumber != ""}),
 			},
@@ -604,6 +612,14 @@ func (p *userProjection) reduceHumanProfileChanged(event eventstore.Event) (*han
 
 	if e.Gender != nil {
 		cols = append(cols, handler.NewCol(HumanGenderCol, *e.Gender))
+	}
+
+	if e.GenderText != nil {
+		cols = append(cols, handler.NewCol(HumanGenderTextCol, *e.GenderText))
+	}
+
+	if e.Pronouns != nil {
+		cols = append(cols, handler.NewCol(HumanPronounsCol, *e.Pronouns))
 	}
 
 	return crdb.NewMultiStatement(

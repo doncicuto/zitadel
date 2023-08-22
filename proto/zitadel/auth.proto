@@ -1209,7 +1209,21 @@ message UpdateMyProfileRequest {
             example: "\"en\"";
         }
     ];
-    zitadel.user.v1.Gender gender = 6;
+    zitadel.user.v1.Gender gender = 6 [deprecated = true];
+    string gender_text = 7 [
+        (validate.rules).string = {max_len: 200},
+        (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            max_length: 200;
+            example: "\"Mail\"";
+        }
+    ];
+    string pronouns = 8 [
+        (validate.rules).string = {max_len: 200},
+        (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = {
+            max_length: 200;
+            example: "\"he/him\"";
+        }
+    ];
 }
 
 message UpdateMyProfileResponse {

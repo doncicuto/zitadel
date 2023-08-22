@@ -109,6 +109,8 @@ message ExportHumanUser {
     string display_name = 4 [(validate.rules).string = {max_len: 200}];
     string preferred_language = 5 [(validate.rules).string = {max_len: 10}];
     zitadel.user.v1.Gender gender = 6;
+    string gender_text = 7 [(validate.rules).string = {max_len: 200}];
+    string pronouns = 8 [(validate.rules).string = {max_len: 200}];
   }
   message Email {
     string email = 1 [(validate.rules).string.email = true];  //TODO: check if no value is allowed
