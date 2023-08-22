@@ -491,6 +491,7 @@
       "DISPLAYNAME": "Екранно име",
       "PREFERRED_LANGUAGE": "език",
       "GENDER": "Пол",
+      "PRONOUNS": "Местоимения",
       "PASSWORD": "Парола",
       "AVATAR": {
         "UPLOADTITLE": "Качете вашата профилна снимка",

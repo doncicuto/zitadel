@@ -498,6 +498,7 @@
       "DISPLAYNAME": "Nombre mostrado",
       "PREFERRED_LANGUAGE": "Idioma",
       "GENDER": "Género",
+      "PRONOUNS": "Pronombres",
       "PASSWORD": "Contraseña",
       "AVATAR": {
         "UPLOADTITLE": "Subir tu imagen de perfil",

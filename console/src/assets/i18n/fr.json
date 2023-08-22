@@ -497,6 +497,7 @@
       "DISPLAYNAME": "Nom d'affichage",
       "PREFERRED_LANGUAGE": "Langue",
       "GENDER": "Sexe",
+      "PRONOUNS": "Pronoms",
       "PASSWORD": "Mot de passe",
       "AVATAR": {
         "UPLOADTITLE": "Téléchargez votre photo de profil",

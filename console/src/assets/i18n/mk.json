@@ -498,6 +498,7 @@
       "DISPLAYNAME": "Име за приказ",
       "PREFERRED_LANGUAGE": "Јазик",
       "GENDER": "Пол",
+      "PRONOUNS": "Заменки",
       "PASSWORD": "Лозинка",
       "AVATAR": {
         "UPLOADTITLE": "Поставете ја вашата слика за профил",

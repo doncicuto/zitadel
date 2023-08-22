@@ -498,6 +498,7 @@
       "DISPLAYNAME": "表示名",
       "PREFERRED_LANGUAGE": "言語",
       "GENDER": "性別",
+      "PRONOUNS": "代名詞",
       "PASSWORD": "パスワード",
       "AVATAR": {
         "UPLOADTITLE": "プロフィール写真のアップロード",

@@ -497,6 +497,7 @@
       "DISPLAYNAME": "Nazwa wyświetlana",
       "PREFERRED_LANGUAGE": "Język",
       "GENDER": "Płeć",
+      "PRONOUNS": "Zaimki",
       "PASSWORD": "Hasło",
       "AVATAR": {
         "UPLOADTITLE": "Prześlij swoje zdjęcie profilowe",

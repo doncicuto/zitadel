@@ -497,6 +497,7 @@
       "DISPLAYNAME": "Anzeigename",
       "PREFERRED_LANGUAGE": "Sprache",
       "GENDER": "Geschlecht",
+      "PRONOUNS": "Pronomen",
       "PASSWORD": "Passwort",
       "AVATAR": {
         "UPLOADTITLE": "Profilfoto uploaden",

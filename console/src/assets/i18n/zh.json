@@ -497,6 +497,7 @@
       "DISPLAYNAME": "展示名称",
       "PREFERRED_LANGUAGE": "语言",
       "GENDER": "性别",
+      "PRONOUNS": "代词",
       "PASSWORD": "密码",
       "AVATAR": {
         "UPLOADTITLE": "上传您的头像",

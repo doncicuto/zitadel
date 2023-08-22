@@ -496,6 +496,7 @@
       "DISPLAYNAME": "DisplayName",
       "PREFERRED_LANGUAGE": "Lingua",
       "GENDER": "Genere",
+      "PRONOUNS": "Pronomi",
       "PASSWORD": "Password",
       "AVATAR": {
         "UPLOADTITLE": "Carica la tua immagine del profilo",

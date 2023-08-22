@@ -498,6 +498,7 @@
       "DISPLAYNAME": "Nome de Exibição",
       "PREFERRED_LANGUAGE": "Idioma",
       "GENDER": "Gênero",
+      "PRONOUNS": "Pronomes",
       "SENHA": "Senha",
       "AVATAR": {
         "UPLOADTITLE": "Carregar sua Foto de Perfil",
