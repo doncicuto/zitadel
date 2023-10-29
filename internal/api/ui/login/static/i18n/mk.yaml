@@ -39,7 +39,6 @@ Password:
   HasSymbol: Симбол
   Confirmation: Потврда на лозинка
   ResetLinkText: ресетирај лозинка
-  BackButtonText: назад
   NextButtonText: следно
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: Се согласувам со
   PrivacyLinkText: политиката за приватност
   ExternalLogin: или регистрирајте се со надворешен корисник
-  BackButtonText: најава
   NextButtonText: следно
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: Се согласувам со
   PrivacyLinkText: политиката за приватност
   ExternalLogin: или регистрирајте се со надворешен корисник
-  BackButtonText: назад
   NextButtonText: зачувај
 
 RegistrationOrg:

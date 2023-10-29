@@ -39,7 +39,6 @@ Password:
   HasSymbol: Symbol
   Confirmation: Potwierdzenie zgodności
   ResetLinkText: zresetuj hasło
-  BackButtonText: wróć
   NextButtonText: dalej
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: Akceptuję
   PrivacyLinkText: politykę prywatności
   ExternalLogin: lub zarejestruj się za pomocą zewnętrznego użytkownika
-  BackButtonText: zaloguj się
   NextButtonText: dalej
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: Akceptuję
   PrivacyLinkText: politykę prywatności
   ExternalLogin: lub zarejestruj się przez zewnętrznego dostawcę
-  BackButtonText: wróć
   NextButtonText: zapisz
 
 RegistrationOrg:

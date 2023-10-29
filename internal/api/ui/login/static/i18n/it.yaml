@@ -39,7 +39,6 @@ Password:
   HasSymbol: Simbolo
   Confirmation: Conferma password
   ResetLinkText: Password dimenticata?
-  BackButtonText: indietro
   NextButtonText: Avanti
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: Accetto i
   PrivacyLinkText: l'informativa sulla privacy
   ExternalLogin: o registrati con un utente esterno
-  BackButtonText: Accedi
   NextButtonText: Avanti
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: Accetto i
   PrivacyLinkText: l'informativa sulla privacy
   ExternalLogin: o registrati con un utente esterno
-  BackButtonText: indietro
   NextButtonText: salva
 
 RegistrationOrg:

@@ -39,7 +39,6 @@ Password:
   HasSymbol: Symbole
   Confirmation: Correspondance de confirmation
   ResetLinkText: réinitialiser le mot de passe
-  BackButtonText: retour
   NextButtonText: suivant
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: J'accepte les
   PrivacyLinkText: politique de confidentialité
   ExternalLogin: ou m'inscrire avec un utilisateur externe
-  BackButtonText: connexion
   NextButtonText: suivant
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: J'accepte les
   PrivacyLinkText: politique de confidentialité
   ExternalLogin: ou m'inscrire avec un utilisateur externe
-  BackButtonText: retour
   NextButtonText: enregistrer
 
 RegistrationOrg:

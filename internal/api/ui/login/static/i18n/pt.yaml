@@ -39,7 +39,6 @@ Password:
   HasSymbol: Símbolo
   Confirmation: Confirmação corresponde
   ResetLinkText: redefinir senha
-  BackButtonText: voltar
   NextButtonText: próximo
 
 UsernameChange:
@@ -165,7 +164,7 @@ Passwordless:
 PasswordlessPrompt:
   Title: Configuração de login sem senha
   Description: Você gostaria de configurar o login sem senha? (Métodos de autenticação do seu dispositivo, como FaceID, Windows Hello ou Impressão digital)
-  
+
 PasswordlessRegistration:
   Title: Configuração de login sem senha
   Description: Adicione sua autenticação fornecendo um nome (por exemplo, MeuCelular, MacBook, etc.) e clique no botão 'Registrar login sem senha' abaixo.
@@ -254,7 +253,6 @@ RegistrationUser:
   PrivacyConfirm: Eu aceito a
   PrivacyLinkText: política de privacidade
   ExternalLogin: ou registre-se com um usuário externo
-  BackButtonText: login
   NextButtonText: próximo
 
 ExternalRegistrationUserOverview:
@@ -283,7 +281,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: Eu aceito a
   PrivacyLinkText: política de privacidade
   ExternalLogin: ou registre-se com um usuário externo
-  BackButtonText: voltar
   NextButtonText: salvar
 
 RegistrationOrg:

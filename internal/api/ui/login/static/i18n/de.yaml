@@ -39,7 +39,6 @@ Password:
   HasSymbol: Symbol
   Confirmation: Wiederholung stimmt überein
   ResetLinkText: Passwort zurücksetzen
-  BackButtonText: Zurück
   NextButtonText: Weiter
 
 UsernameChange:
@@ -257,7 +256,6 @@ RegistrationUser:
   PrivacyConfirm: Ich akzeptiere die
   PrivacyLinkText: Datenschutzerklärung
   ExternalLogin: oder registriere dich mit einem externen Benutzerkonto
-  BackButtonText: Anmelden
   NextButtonText: Weiter
 
 ExternalRegistrationUserOverview:
@@ -287,7 +285,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: Ich akzeptiere die
   PrivacyLinkText: Datenschutzerklärung
   ExternalLogin: oder registriere dich mit einem externen Benutzerkonto
-  BackButtonText: Zurück
   NextButtonText: Speichern
 
 RegistrationOrg:
@@ -345,7 +342,7 @@ ExternalNotFound:
   Bulgarian: Български
   Portuguese: Português
   Macedonian: Македонски
-  
+
 DeviceAuth:
   Title: Gerätezulassung
   UserCode:

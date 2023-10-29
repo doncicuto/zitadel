@@ -39,7 +39,6 @@ Password:
   HasSymbol: 符号
   Confirmation: 确认匹配
   ResetLinkText: 重设密码
-  BackButtonText: 后退
   NextButtonText: 继续
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: 我接受
   PrivacyLinkText: 隐私政策
   ExternalLogin: 使用外部身份提供者注册
-  BackButtonText: 登录
   NextButtonText: 继续
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: 我接受
   PrivacyLinkText: 隐私政策
   ExternalLogin: 使用外部身份提供者注册
-  BackButtonText: 返回
   NextButtonText: 保存
 
 RegistrationOrg:

@@ -39,7 +39,6 @@ Password:
   HasSymbol: Symbol
   Confirmation: Confirmation match
   ResetLinkText: Reset Password
-  BackButtonText: Back
   NextButtonText: Next
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: I accept the
   PrivacyLinkText: privacy policy
   ExternalLogin: or register with an external user
-  BackButtonText: Login
   NextButtonText: Next
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: I accept the
   PrivacyLinkText: privacy policy
   ExternalLogin: or register with an external user
-  BackButtonText: Nack
   NextButtonText: Save
 
 RegistrationOrg:
@@ -346,7 +343,7 @@ ExternalNotFound:
   Bulgarian: Български
   Portuguese: Português
   Macedonian: Македонски
-  
+
 DeviceAuth:
   Title: Device Authorization
   UserCode:

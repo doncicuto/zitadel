@@ -39,7 +39,6 @@ Password:
   HasSymbol: Símbolo
   Confirmation: Las contraseñas coinciden
   ResetLinkText: restablecer contraseña
-  BackButtonText: atrás
   NextButtonText: siguiente
 
 UsernameChange:
@@ -258,7 +257,6 @@ RegistrationUser:
   PrivacyConfirm: Acepto la
   PrivacyLinkText: política de privacidad
   ExternalLogin: o regístrate con un usuario externo
-  BackButtonText: inicio de sesión
   NextButtonText: siguiente
 
 ExternalRegistrationUserOverview:
@@ -288,7 +286,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: Acepto la
   PrivacyLinkText: política de privacidad
   ExternalLogin: o regístrate con un usuario externo
-  BackButtonText: atrás
   NextButtonText: guardar
 
 RegistrationOrg:
@@ -346,7 +343,7 @@ ExternalNotFound:
   Bulgarian: Български
   Portuguese: Português
   Macedonian: Македонски
-  
+
 Footer:
   PoweredBy: Powered By
   Tos: TDS

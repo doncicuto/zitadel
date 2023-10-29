@@ -32,7 +32,6 @@ Password:
   HasSymbol: シンボル
   Confirmation: パスワードの確認
   ResetLinkText: パスワードを再設定する
-  BackButtonText: 戻る
   NextButtonText: 次へ
 
 UsernameChange:
@@ -250,7 +249,6 @@ RegistrationUser:
   PrivacyConfirm: 私はプライバシーポリシーを承諾します。
   PrivacyLinkText: プライバシーポリシー
   ExternalLogin: または、外部ユーザーで登録
-  BackButtonText: ログイン
   NextButtonText: 次へ
 
 ExternalRegistrationUserOverview:
@@ -280,7 +278,6 @@ ExternalRegistrationUserOverview:
   PrivacyConfirm: 私はプライバシーポリシーを承諾します。
   PrivacyLinkText: プライバシーポリシー
   ExternalLogin: または、外部ユーザーで登録
-  BackButtonText: 戻る
   NextButtonText: 保存
 
 RegistrationOrg:
@@ -363,7 +360,7 @@ Footer:
   PrivacyPolicy: プライバシーポリシー
   Help: ヘルプ
 
-SignIn: '{{.Provider}} でサインイン'
+SignIn: "{{.Provider}} でサインイン"
 
 Errors:
   Internal: 内部でエラーが発生しました
