@@ -3,14 +3,13 @@ package handlers
 import (
 	"context"
 
-	"github.com/zitadel/zitadel/internal/api/authz"
 	"github.com/zitadel/zitadel/internal/crypto"
 	"github.com/zitadel/zitadel/internal/notification/channels/smtp"
 )
 
 // GetSMTPConfig reads the iam SMTP provider config
 func (n *NotificationQueries) GetSMTPConfig(ctx context.Context) (*smtp.Config, error) {
-	config, err := n.SMTPConfigByAggregateID(ctx, authz.GetInstance(ctx).InstanceID())
+	config, err := n.SMTPConfigByAggregateID(ctx)
 	if err != nil {
 		return nil, err
 	}

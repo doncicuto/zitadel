@@ -20,8 +20,8 @@ func listSMTPConfigsToModel(req *admin_pb.ListSMTPConfigsRequest) (*query.SMTPCo
 
 func SMTPConfigToProviderPb(config *query.SMTPConfig) *settings_pb.SMTPConfig {
 	return &settings_pb.SMTPConfig{
+		Id:            config.AggregateID,
 		Details:       object.ToViewDetailsPb(config.Sequence, config.CreationDate, config.ChangeDate, config.ResourceOwner),
-		Id:            config.ID,
 		Description:   config.Description,
 		Tls:           config.TLS,
 		Host:          config.Host,

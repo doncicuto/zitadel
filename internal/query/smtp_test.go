@@ -27,7 +27,6 @@ var (
 		` projections.smtp_configs2.host,` +
 		` projections.smtp_configs2.username,` +
 		` projections.smtp_configs2.password,` +
-		` projections.smtp_configs2.id,` +
 		` projections.smtp_configs2.state,` +
 		` FROM projections.smtp_configs2` +
 		` AS OF SYSTEM TIME '-1 ms'`
@@ -45,7 +44,6 @@ var (
 		"smtp_host",
 		"smtp_user",
 		"smtp_password",
-		"id",
 		"state",
 	}
 )
@@ -100,7 +98,6 @@ func Test_SMTPConfigsPrepares(t *testing.T) {
 						"host",
 						"user",
 						&crypto.CryptoValue{},
-						"2232323",
 						domain.SMTPConfigStateActive,
 					},
 				),
@@ -119,7 +116,6 @@ func Test_SMTPConfigsPrepares(t *testing.T) {
 				Host:           "host",
 				User:           "user",
 				Password:       &crypto.CryptoValue{},
-				ID:             "2232323",
 				State:          domain.SMTPConfigStateActive,
 			},
 		},

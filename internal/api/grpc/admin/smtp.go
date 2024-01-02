@@ -9,7 +9,7 @@ import (
 )
 
 func (s *Server) GetSMTPConfig(ctx context.Context, req *admin_pb.GetSMTPConfigRequest) (*admin_pb.GetSMTPConfigResponse, error) {
-	smtp, err := s.query.SMTPConfigByAggregateID(ctx, authz.GetInstance(ctx).InstanceID())
+	smtp, err := s.query.SMTPConfigByAggregateID(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -19,7 +19,7 @@ func (s *Server) GetSMTPConfig(ctx context.Context, req *admin_pb.GetSMTPConfigR
 }
 
 func (s *Server) GetSMTPConfigById(ctx context.Context, req *admin_pb.GetSMTPConfigByIdRequest) (*admin_pb.GetSMTPConfigByIdResponse, error) {
-	smtp, err := s.query.SMTPConfigByID(ctx, authz.GetInstance(ctx).InstanceID(), req.Id)
+	smtp, err := s.query.SMTPConfigByID(ctx, req.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -99,9 +99,9 @@ func (s *Server) ListSMTPConfigs(ctx context.Context, req *admin_pb.ListSMTPConf
 func (s *Server) ActivateSMTPConfig(ctx context.Context, req *admin_pb.ActivateSMTPConfigRequest) (*admin_pb.ActivateSMTPConfigResponse, error) {
 	// Get the ID of current SMTP active provider if any
 	currentActiveProviderID := ""
-	smtp, err := s.query.SMTPConfigByAggregateID(ctx, authz.GetInstance(ctx).InstanceID())
+	smtp, err := s.query.SMTPConfigByAggregateID(ctx)
 	if err == nil {
-		currentActiveProviderID = smtp.ID
+		currentActiveProviderID = smtp.AggregateID
 	}
 
 	result, err := s.command.ActivateSMTPConfig(ctx, authz.GetInstance(ctx).InstanceID(), req.Id, currentActiveProviderID)

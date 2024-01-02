@@ -162,6 +162,7 @@ func UpdateSMTPToConfig(req *admin_pb.UpdateSMTPConfigRequest) *smtp.Config {
 
 func SMTPConfigToPb(smtp *query.SMTPConfig) *settings_pb.SMTPConfig {
 	mapped := &settings_pb.SMTPConfig{
+		Id:             smtp.AggregateID,
 		Description:    smtp.Description,
 		Tls:            smtp.TLS,
 		SenderAddress:  smtp.SenderAddress,

@@ -186,18 +186,18 @@ func (mr *MockQueriesMockRecorder) SMSProviderConfig(arg0 any, arg1 ...any) *gom
 }
 
 // SMTPConfigByAggregateID mocks base method.
-func (m *MockQueries) SMTPConfigByAggregateID(arg0 context.Context, arg1 string) (*query.SMTPConfig, error) {
+func (m *MockQueries) SMTPConfigByAggregateID(arg0 context.Context) (*query.SMTPConfig, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "SMTPConfigByAggregateID", arg0, arg1)
+	ret := m.ctrl.Call(m, "SMTPConfigByAggregateID", arg0)
 	ret0, _ := ret[0].(*query.SMTPConfig)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // SMTPConfigByAggregateID indicates an expected call of SMTPConfigByAggregateID.
-func (mr *MockQueriesMockRecorder) SMTPConfigByAggregateID(arg0, arg1 any) *gomock.Call {
+func (mr *MockQueriesMockRecorder) SMTPConfigByAggregateID(arg0 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SMTPConfigByAggregateID", reflect.TypeOf((*MockQueries)(nil).SMTPConfigByAggregateID), arg0, arg1)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SMTPConfigByAggregateID", reflect.TypeOf((*MockQueries)(nil).SMTPConfigByAggregateID), arg0)
 }
 
 // SearchInstanceDomains mocks base method.

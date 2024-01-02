@@ -84,10 +84,6 @@ var (
 		name:  projection.SMTPConfigColumnSMTPPassword,
 		table: smtpConfigsTable,
 	}
-	SMTPConfigColumnID = Column{
-		name:  projection.SMTPConfigColumnID,
-		table: smtpConfigsTable,
-	}
 	SMTPConfigColumnState = Column{
 		name:  projection.SMTPConfigColumnState,
 		table: smtpConfigsTable,
@@ -111,20 +107,18 @@ type SMTPConfig struct {
 	Host           string
 	User           string
 	Password       *crypto.CryptoValue
-	ID             string
 	State          domain.SMTPConfigState
 	Description    string
 }
 
-func (q *Queries) SMTPConfigByAggregateID(ctx context.Context, aggregateID string) (config *SMTPConfig, err error) {
+func (q *Queries) SMTPConfigByAggregateID(ctx context.Context) (config *SMTPConfig, err error) {
 	ctx, span := tracing.NewSpan(ctx)
 	defer func() { span.EndWithError(err) }()
 
 	stmt, scan := prepareSMTPConfigQuery(ctx, q.client)
 	query, args, err := stmt.Where(sq.Eq{
-		SMTPConfigColumnAggregateID.identifier(): aggregateID,
-		SMTPConfigColumnInstanceID.identifier():  authz.GetInstance(ctx).InstanceID(),
-		SMTPConfigColumnState.identifier():       domain.SMTPConfigStateActive,
+		SMTPConfigColumnInstanceID.identifier(): authz.GetInstance(ctx).InstanceID(),
+		SMTPConfigColumnState.identifier():      domain.SMTPConfigStateActive,
 	}).ToSql()
 	if err != nil {
 		return nil, errors.ThrowInternal(err, "QUERY-3m9sl", "Errors.Query.SQLStatement")
@@ -137,7 +131,7 @@ func (q *Queries) SMTPConfigByAggregateID(ctx context.Context, aggregateID strin
 	return config, err
 }
 
-func (q *Queries) SMTPConfigByID(ctx context.Context, aggregateID, id string) (config *SMTPConfig, err error) {
+func (q *Queries) SMTPConfigByID(ctx context.Context, aggregateID string) (config *SMTPConfig, err error) {
 	ctx, span := tracing.NewSpan(ctx)
 	defer func() { span.EndWithError(err) }()
 
@@ -145,7 +139,6 @@ func (q *Queries) SMTPConfigByID(ctx context.Context, aggregateID, id string) (c
 	query, args, err := stmt.Where(sq.Eq{
 		SMTPConfigColumnAggregateID.identifier(): aggregateID,
 		SMTPConfigColumnInstanceID.identifier():  authz.GetInstance(ctx).InstanceID(),
-		SMTPConfigColumnID.identifier():          id,
 	}).ToSql()
 	if err != nil {
 		return nil, errors.ThrowInternal(err, "QUERY-8f8gw", "Errors.Query.SQLStatement")
@@ -174,7 +167,6 @@ func prepareSMTPConfigQuery(ctx context.Context, db prepareDatabase) (sq.SelectB
 			SMTPConfigColumnSMTPHost.identifier(),
 			SMTPConfigColumnSMTPUser.identifier(),
 			SMTPConfigColumnSMTPPassword.identifier(),
-			SMTPConfigColumnID.identifier(),
 			SMTPConfigColumnState.identifier(),
 			SMTPConfigColumnDescription.identifier()).
 			From(smtpConfigsTable.identifier() + db.Timetravel(call.Took(ctx))).
@@ -194,7 +186,6 @@ func prepareSMTPConfigQuery(ctx context.Context, db prepareDatabase) (sq.SelectB
 				&config.Host,
 				&config.User,
 				&password,
-				&config.ID,
 				&config.State,
 				&config.Description,
 			)
@@ -223,7 +214,6 @@ func prepareSMTPConfigsQuery(ctx context.Context, db prepareDatabase) (sq.Select
 			SMTPConfigColumnSMTPHost.identifier(),
 			SMTPConfigColumnSMTPUser.identifier(),
 			SMTPConfigColumnSMTPPassword.identifier(),
-			SMTPConfigColumnID.identifier(),
 			SMTPConfigColumnState.identifier(),
 			SMTPConfigColumnDescription.identifier(),
 			countColumn.identifier()).
@@ -246,7 +236,6 @@ func prepareSMTPConfigsQuery(ctx context.Context, db prepareDatabase) (sq.Select
 					&config.Host,
 					&config.User,
 					&config.Password,
-					&config.ID,
 					&config.State,
 					&config.Description,
 					&configs.Count,

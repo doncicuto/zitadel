@@ -174,7 +174,6 @@ func (c *Commands) ChangeSMTPConfigPassword(ctx context.Context, instanceID, id 
 	pushedEvents, err := c.eventstore.Push(ctx, instance.NewSMTPConfigPasswordChangedEvent(
 		ctx,
 		&instanceAgg.Aggregate,
-		id,
 		smtpPassword))
 	if err != nil {
 		return nil, err
@@ -246,7 +245,7 @@ func (c *Commands) DeactivateSMTPConfig(ctx context.Context, instanceID, id stri
 	pushedEvents, err := c.eventstore.Push(ctx, instance.NewSMTPConfigDeactivatedEvent(
 		ctx,
 		iamAgg,
-		id))
+	))
 	if err != nil {
 		return nil, err
 	}
@@ -274,7 +273,7 @@ func (c *Commands) RemoveSMTPConfig(ctx context.Context, instanceID, id string) 
 	pushedEvents, err := c.eventstore.Push(ctx, instance.NewSMTPConfigRemovedEvent(
 		ctx,
 		iamAgg,
-		id))
+	))
 	if err != nil {
 		return nil, err
 	}

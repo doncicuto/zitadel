@@ -810,7 +810,6 @@ func TestCommandSide_ChangeSMTPConfigPassword(t *testing.T) {
 						instance.NewSMTPConfigPasswordChangedEvent(
 							context.Background(),
 							&instance.NewAggregate("INSTANCE").Aggregate,
-							"ID",
 							&crypto.CryptoValue{
 								CryptoType: crypto.TypeEncryption,
 								Algorithm:  "enc",
@@ -1056,14 +1055,12 @@ func TestCommandSide_DeactivateSMTPConfig(t *testing.T) {
 						instance.NewSMTPConfigDeactivatedEvent(
 							context.Background(),
 							&instance.NewAggregate("INSTANCE").Aggregate,
-							"ID",
 						),
 					),
 				),
 			},
 			args: args{
 				ctx:         authz.WithInstanceID(context.Background(), "INSTANCE"),
-				id:          "ID",
 				instanceID:  "INSTANCE",
 				activatedId: "",
 			},
@@ -1156,7 +1153,6 @@ func TestCommandSide_RemoveSMTPConfig(t *testing.T) {
 						instance.NewSMTPConfigRemovedEvent(
 							context.Background(),
 							&instance.NewAggregate("INSTANCE").Aggregate,
-							"ID",
 						),
 					),
 				),
@@ -1205,7 +1201,6 @@ func newSMTPConfigChangedEvent(ctx context.Context, id, description string, tls 
 	}
 	event, _ := instance.NewSMTPConfigChangeEvent(ctx,
 		&instance.NewAggregate("INSTANCE").Aggregate,
-		id,
 		changes,
 	)
 	return event

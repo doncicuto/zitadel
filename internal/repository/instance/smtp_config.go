@@ -84,7 +84,6 @@ func SMTPConfigAddedEventMapper(event eventstore.Event) (eventstore.Event, error
 
 type SMTPConfigChangedEvent struct {
 	eventstore.BaseEvent `json:"-"`
-	ID                   string              `json:"id,omitempty"`
 	Description          *string             `json:"description,omitempty"`
 	FromAddress          *string             `json:"senderAddress,omitempty"`
 	FromName             *string             `json:"senderName,omitempty"`
@@ -106,7 +105,6 @@ func (e *SMTPConfigChangedEvent) UniqueConstraints() []*eventstore.UniqueConstra
 func NewSMTPConfigChangeEvent(
 	ctx context.Context,
 	aggregate *eventstore.Aggregate,
-	id string,
 	changes []SMTPConfigChanges,
 ) (*SMTPConfigChangedEvent, error) {
 	if len(changes) == 0 {
@@ -118,7 +116,6 @@ func NewSMTPConfigChangeEvent(
 			aggregate,
 			SMTPConfigChangedEventType,
 		),
-		ID: id,
 	}
 	for _, change := range changes {
 		change(changeEvent)
@@ -127,12 +124,6 @@ func NewSMTPConfigChangeEvent(
 }
 
 type SMTPConfigChanges func(event *SMTPConfigChangedEvent)
-
-func ChangeSMTPConfigID(id string) func(event *SMTPConfigChangedEvent) {
-	return func(e *SMTPConfigChangedEvent) {
-		e.ID = id
-	}
-}
 
 func ChangeSMTPConfigDescription(description string) func(event *SMTPConfigChangedEvent) {
 	return func(e *SMTPConfigChangedEvent) {
@@ -197,14 +188,12 @@ func SMTPConfigChangedEventMapper(event eventstore.Event) (eventstore.Event, err
 
 type SMTPConfigPasswordChangedEvent struct {
 	eventstore.BaseEvent `json:"-"`
-	ID                   string              `json:"id,omitempty"`
 	Password             *crypto.CryptoValue `json:"password,omitempty"`
 }
 
 func NewSMTPConfigPasswordChangedEvent(
 	ctx context.Context,
 	aggregate *eventstore.Aggregate,
-	id string,
 	password *crypto.CryptoValue,
 ) *SMTPConfigPasswordChangedEvent {
 	return &SMTPConfigPasswordChangedEvent{
@@ -239,7 +228,6 @@ func SMTPConfigPasswordChangedEventMapper(event eventstore.Event) (eventstore.Ev
 
 type SMTPConfigActivatedEvent struct {
 	eventstore.BaseEvent `json:"-"`
-	ID                   string `json:"id,omitempty"`
 }
 
 func NewSMTPConfigActivatedEvent(
@@ -253,7 +241,6 @@ func NewSMTPConfigActivatedEvent(
 			aggregate,
 			SMTPConfigActivatedEventType,
 		),
-		ID: id,
 	}
 }
 
@@ -279,13 +266,11 @@ func SMTPConfigActivatedEventMapper(event eventstore.Event) (eventstore.Event, e
 
 type SMTPConfigDeactivatedEvent struct {
 	eventstore.BaseEvent `json:"-"`
-	ID                   string `json:"id,omitempty"`
 }
 
 func NewSMTPConfigDeactivatedEvent(
 	ctx context.Context,
 	aggregate *eventstore.Aggregate,
-	id string,
 ) *SMTPConfigDeactivatedEvent {
 	return &SMTPConfigDeactivatedEvent{
 		BaseEvent: *eventstore.NewBaseEventForPush(
@@ -293,7 +278,6 @@ func NewSMTPConfigDeactivatedEvent(
 			aggregate,
 			SMTPConfigDeactivatedEventType,
 		),
-		ID: id,
 	}
 }
 
@@ -319,13 +303,11 @@ func SMTPConfigDeactivatedEventMapper(event eventstore.Event) (eventstore.Event,
 
 type SMTPConfigRemovedEvent struct {
 	eventstore.BaseEvent `json:"-"`
-	ID                   string `json:"id,omitempty"`
 }
 
 func NewSMTPConfigRemovedEvent(
 	ctx context.Context,
 	aggregate *eventstore.Aggregate,
-	id string,
 ) *SMTPConfigRemovedEvent {
 	return &SMTPConfigRemovedEvent{
 		BaseEvent: *eventstore.NewBaseEventForPush(
@@ -333,7 +315,6 @@ func NewSMTPConfigRemovedEvent(
 			aggregate,
 			SMTPConfigRemovedEventType,
 		),
-		ID: id,
 	}
 }
 

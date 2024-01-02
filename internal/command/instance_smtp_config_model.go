@@ -12,7 +12,6 @@ import (
 type IAMSMTPConfigWriteModel struct {
 	eventstore.WriteModel
 
-	ID             string
 	Description    string
 	TLS            bool
 	Host           string
@@ -31,11 +30,10 @@ type IAMSMTPConfigWriteModel struct {
 func NewIAMSMTPConfigWriteModel(instanceID, id, domain string) *IAMSMTPConfigWriteModel {
 	return &IAMSMTPConfigWriteModel{
 		WriteModel: eventstore.WriteModel{
-			AggregateID:   instanceID,
+			AggregateID:   id,
 			ResourceOwner: instanceID,
 			InstanceID:    instanceID,
 		},
-		ID:     id,
 		domain: domain,
 	}
 }
@@ -64,27 +62,27 @@ func (wm *IAMSMTPConfigWriteModel) Reduce() error {
 	for _, event := range wm.Events {
 		switch e := event.(type) {
 		case *instance.SMTPConfigAddedEvent:
-			if wm.ID != e.ID {
+			if wm.AggregateID != e.ID {
 				continue
 			}
 			wm.reduceSMTPConfigAddedEvent(e)
 		case *instance.SMTPConfigChangedEvent:
-			if wm.ID != e.ID {
+			if wm.AggregateID != e.ID {
 				continue
 			}
 			wm.reduceSMTPConfigChangedEvent(e)
 		case *instance.SMTPConfigRemovedEvent:
-			if wm.ID != e.ID {
+			if wm.AggregateID != e.ID {
 				continue
 			}
 			wm.reduceSMTPConfigRemovedEvent(e)
 		case *instance.SMTPConfigActivatedEvent:
-			if wm.ID != e.ID {
+			if wm.AggregateID != e.ID {
 				continue
 			}
 			wm.State = domain.SMTPConfigStateActive
 		case *instance.SMTPConfigDeactivatedEvent:
-			if wm.ID != e.ID {
+			if wm.AggregateID != e.ID {
 				continue
 			}
 			wm.State = domain.SMTPConfigStateInactive
@@ -128,9 +126,6 @@ func (wm *IAMSMTPConfigWriteModel) NewChangedEvent(ctx context.Context, aggregat
 	changes := make([]instance.SMTPConfigChanges, 0)
 	var err error
 
-	if wm.ID != id {
-		changes = append(changes, instance.ChangeSMTPConfigID(id))
-	}
 	if wm.Description != description {
 		changes = append(changes, instance.ChangeSMTPConfigDescription(description))
 	}
@@ -158,7 +153,7 @@ func (wm *IAMSMTPConfigWriteModel) NewChangedEvent(ctx context.Context, aggregat
 	if len(changes) == 0 {
 		return nil, false, nil
 	}
-	changeEvent, err := instance.NewSMTPConfigChangeEvent(ctx, aggregate, id, changes)
+	changeEvent, err := instance.NewSMTPConfigChangeEvent(ctx, aggregate, changes)
 	if err != nil {
 		return nil, false, err
 	}

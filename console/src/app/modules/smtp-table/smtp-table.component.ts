@@ -161,6 +161,7 @@ export class SMTPTableComponent implements OnInit {
       .listSMTPConfigs()
       .then((resp) => {
         this.configsResult = resp;
+        console.log(this.configsResult);
         if (resp.resultList) {
           this.dataSource.data = resp.resultList;
         }
